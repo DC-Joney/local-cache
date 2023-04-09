@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package jraft;
+
+option java_package = "com.turing.rpc";
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+message HeartBeatRequest {
+  // 请求时间
+  google.protobuf.UInt64Value timestamp = 1;
+  //请求体
+  bytes payload = 2;
+}
+
+message HeartBeatResponse {
+  bool success = 1;
+  string errorMessage = 2;
+  bytes data = 3;
+}
